@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;  
+using System.Linq;  
+using System.Text;  
+using System.Threading.Tasks;
+
+class MainClass {
+  public static void Main() {
+    // menu and choice
+    Console.WriteLine("~Human to Animal Years~");
+    Console.WriteLine("Which domestic animal do you want to know the human age of?");
+    Console.WriteLine("1. Dog - Small-Breed");
+    Console.WriteLine("2. Cat");
+    Console.WriteLine("3. Horse");
+    Console.WriteLine("4. Small Bird");
+    Console.Write("Animal: ");
+    
+    // inputs
+    int aniChoice = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("How many human years do you want to convert?");
+    double hYears = Convert.ToDouble(Console.ReadLine());
+    double aYrsTot = 0;
+
+    if (aniChoice == 1){
+      aYrsTot = DogYears(hYears);
+      Console.WriteLine(hYears + " human years are equal to " + aYrsTot + " small dog years!");
+    }
+    else if (aniChoice == 2){
+      aYrsTot = CatYears(hYears);
+      Console.WriteLine(hYears + " human years are equal to " + aYrsTot + " cat years!");
+    }
+    else if (aniChoice == 3){
+      aYrsTot = HorseYears(hYears);
+      Console.WriteLine(hYears + " human years are equal to " + aYrsTot + " horse years!");
+    }
+    else if (aniChoice == 4){
+      aYrsTot = BirdYears(hYears);
+      Console.WriteLine(hYears + " human years are equal to " + aYrsTot + " small bird years!");
+    }
+    else {
+      Console.WriteLine("Please enter a proper menu choice!");
+    }
+
+    Console.Write("Play again? Y/N: ");
+    string newGame = Console.ReadLine();
+      while (newGame == "Y" || newGame == "y"){
+        Main();
+      }
+  }
+
+  public static double DogYears(double hYears){
+    // dog years = first year of DogYears is = 15 hYrs, then 1 hYr = 4 dYrs
+    double dogYears = 4;
+      if (hYears == 1){
+        double aYrsTot = 15;
+        return aYrsTot;
+      }
+      else if (hYears == 2){
+        double aYrsTot = 24;
+        return aYrsTot;
+      }
+      else{
+        double aYrsTot = 24 + ((hYears - 2) * dogYears);
+        return aYrsTot;
+      }
+  }
+  public static double CatYears(double hYears){
+    // cat years = first two CatYears is = 25 hYrs, then 1 hYr = 4 cYrs
+    double catYears = 4;
+      if (hYears == 1) {
+        double aYrsTot = 12.5;
+        return aYrsTot;
+      }
+      else if (hYears == 2) {
+        double aYrsTot = 25;
+        return aYrsTot;
+      }
+      else {
+        double aYrsTot = 25 + ((hYears - 2) * 4);
+        return aYrsTot;
+      }
+    } 
+
+  public static double HorseYears(double hYears){
+    // horse years = first three HorseYears is = 5 hYrs, then 1 hYr = 6.5 horYrs
+    if(hYears == 1){
+      double aYrsTot = 1.66;
+      return aYrsTot;
+    }
+    else if(hYears == 2){
+      double aYrsTot = 3.32;
+      return aYrsTot;
+    }
+    else if(hYears == 3){
+      double aYrsTot = 5;
+      return aYrsTot;
+    }
+    else {
+      double aYrsTot = 5 + ((hYears - 3) * 6.5);
+      return aYrsTot;
+    }
+  }
+
+  public static double BirdYears(double hYears){
+    // bird years = 1 hYr = 10 bYr
+    double bYears = 10;
+    double aYrsTot = hYears * bYears;
+    return aYrsTot;
+  }
+}
