@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;  
+using System.Linq;  
+using System.Text;  
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main()
+    {
+      
+      Console.WriteLine("~Basic Calculator~");
+      Console.WriteLine("Menu:");
+      Console.WriteLine("1. Addition");
+      Console.WriteLine("2. Subtraction");
+      Console.WriteLine("3. Multiplication");
+      Console.WriteLine("4. Division");
+      
+      int menuChoice = Convert.ToInt32(Console.ReadLine());
+      Console.Write("Input First Number: ");
+      int firstNum = Convert.ToInt32(Console.ReadLine());
+      Console.Write("Input Second Number: ");
+      int secNum = Convert.ToInt32(Console.ReadLine());
+      int result = 0;
+
+      switch(menuChoice){
+        case 1:
+          {result = Addition(firstNum, secNum);
+          break;}
+        case 2:
+          {result = Subtraction(firstNum, secNum);
+          break;}
+        case 3:
+          {result = Multiplication(firstNum, secNum);
+          break;}
+        case 4: 
+          {result = Division(firstNum, secNum);
+          break;}
+        default:
+          Console.WriteLine("Please enter a proper menu option!");
+          break;
+        } 
+        Console.WriteLine("Total: " + result);
+        Console.Write("Input another? Y/N: ");
+        string answer = Console.ReadLine();
+          while(answer == "Y"|| answer == "y"){
+           Main();
+          }
+    }
+        public static int Addition(int firstNum, int secNum){
+          int result = firstNum + secNum;
+          return result;
+        }
+        public static int Subtraction(int firstNum, int secNum){
+          int result = firstNum - secNum;
+          return result;
+        }
+        public static int Multiplication(int firstNum, int secNum){
+          int result = firstNum * secNum;
+          return result;
+        }
+        public static int Division(int firstNum, int secNum){
+          int result = firstNum / secNum;
+          return result;
+        }
+}
